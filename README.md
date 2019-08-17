@@ -1,24 +1,65 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# chat spaceのデータベース設計
 
-Things you may want to cover:
+製作するテーブルは中間含めて全部で４つ  
+* usersテーブル
+* roomsテーブル
+* messagesテーブル
+* usersテーブルとroomsテーブルの中間テーブルであるgroups_usersテーブル
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|e_mail|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
 
-* Database creation
+### Association
+has_many :groups through:groups_users  
+has_many :messages  
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## groupsテーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null:false,foreign_key: true|
+|name|string|null:false
+|users|integer|null:false|
 
-* ...
+### Association
+has_many :users through:groups_users  
+has_many :messages
+
+
+
+## messageテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|message_id|integer|null:false,foreign_key: true|
+|group|integer|null:false|
+|user|integer|null:false|
+|message|text|null:false|
+|image|string|
+|ceated_at|timestamp|null:false|
+
+### Association
+belongs_to :user
+
+  
+## groups_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
