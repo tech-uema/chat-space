@@ -4,23 +4,23 @@
 
 製作するテーブルは中間含めて全部で４つ  
 * usersテーブル
-* roomsテーブル
+* groupsテーブル
 * messagesテーブル
-* usersテーブルとroomsテーブルの中間テーブルであるgroups_usersテーブル
+* usersテーブルとgroupsテーブルの中間テーブルであるgroups_usersテーブル
 
 
 
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 |e_mail|string|null: false|
 |password|string|null: false|
-|nickname|string|null: false|
+|nickname|string|null: false,index: true|
 
 ### Association
-has_many :groups through:groups_users  
+has_many :groups,through: :groups_users  
 has_many :messages  
+has_many :groups_users
 
 
 
@@ -28,9 +28,7 @@ has_many :messages
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null:false,foreign_key: true|
 |name|string|null:false
-|users|integer|null:false|
 
 ### Association
 has_many :users through:groups_users  
@@ -42,24 +40,25 @@ has_many :messages
 
 |Column|Type|Options|
 |------|----|-------|
-|message_id|integer|null:false,foreign_key: true|
-|group|integer|null:false|
-|user|integer|null:false|
-|message|text|null:false|
-|image|string|
-|ceated_at|timestamp|null:false|
+|group|references|null:false,foreign_key: true|
+|user|references|null:false,foreign_key: true|
+|text|references|foreign_key: true|
+|image|string||  
 
 ### Association
+belongs_to :group  
 belongs_to :user
 
-  
+
+
+
 ## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
-- belongs_to :user
+- belongs_to :user　　
