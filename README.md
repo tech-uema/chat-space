@@ -42,7 +42,7 @@ has_many :messages
 |------|----|-------|
 |group|references|null:false,foreign_key: true|
 |user|references|null:false,foreign_key: true|
-|text|references|foreign_key: true|
+|content|references|foreign_key: true|
 |image|string||  
 
 ### Association
