@@ -41,5 +41,8 @@ $(document).on('turbolinks:load', function(){
     .fail(function(data){
       alert('エラーです');
     })
+    .always(function(data){
+      $('.form__submit').prop('disabled', false);
+    })
   })
 });
