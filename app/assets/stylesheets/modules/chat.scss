@@ -31,6 +31,8 @@
       margin-top: 28px;
       padding: 0 20px;
       &__button {
+        display: inline-block;
+        cursor: pointer;
         color: $light_blue;
         text-decoration: none;
       }
@@ -40,8 +42,9 @@
   .messages {
     background-color: #FAFAFA;
     box-sizing: border-box;
+    overflow: scroll;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 100px - 90px);
     .message {
       .upper-message {
         display: flex;

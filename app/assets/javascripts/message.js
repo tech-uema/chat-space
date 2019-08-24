@@ -33,11 +33,22 @@ $(document).on('turbolinks:load', function(){
       processData: false,
       contentType: false
     })
+    
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form__message').val('') 
+      $('.messages').append(html);
+      $('.form__message').val('');
+      scrollBottom();
+     
+      function scrollBottom(){
+        var target = $('.message').last();
+        var position = target.offset().top + $('.messages').scrollTop();
+        $('.messages').animate({
+          scrollTop: position
+        }, 300, 'swing');
+       }
     })
+    
     .fail(function(data){
       alert('エラーです');
     })

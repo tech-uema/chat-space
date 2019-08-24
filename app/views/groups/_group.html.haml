@@ -1,0 +1,8 @@
+-@groups.users.each do |user|
+  %li.member
+    = user.name
+       -end
+
+
+
+       = render partial: 'groups/group', collection: @groups
