@@ -29,12 +29,13 @@
       height: 40px;
       line-height: 40px;
       margin-top: 28px;
-      padding: 0 20px;
+      
       &__button {
         display: inline-block;
         cursor: pointer;
         color: $light_blue;
         text-decoration: none;
+        padding: 0 20px;
       }
     }
   }
