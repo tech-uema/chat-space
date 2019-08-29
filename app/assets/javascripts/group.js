@@ -41,8 +41,7 @@ $(document).on('turbolinks:load', function(){
           });
         }
         else {
-          // appendErrMsgToHTML("一致する映画はありません");
-        }
+  
         })
         .fail(function() {
           alert('ユーザー検索に失敗しました');
