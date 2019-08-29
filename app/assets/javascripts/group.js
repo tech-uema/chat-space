@@ -59,7 +59,6 @@ $(document).on('turbolinks:load', function(){
     })
 
     $(document).on('click','.js-remove-btn',function(){
-      console.log("fire")
       $(this).parent('div').remove();
     })
 
