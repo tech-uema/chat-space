@@ -1,4 +1,3 @@
-// $(document).on('turbolinks:load', function(){
 $(function() {
 
   function buildHTML(message) {
@@ -60,7 +59,6 @@ $(function() {
   
       var reloadMessages = function() {
         if (window.location.href.match(/\/groups\/\d+\/messages/)){
-        //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
         last_message_id = $('.message:last').data("message-id"); //dataメソッドで.messageにある:last最後のカスタムデータ属性を取得しlast_message_idに代入。
         $.ajax({
           url: "api/messages",
