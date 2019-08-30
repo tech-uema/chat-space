@@ -16,3 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 public/uploads
+
+# 重要なデータが入ってるので絶対に外してはいけない
+config/secrets.yml
