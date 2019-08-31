@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
- $(function() {
+ 
 
 
     function buildHTML(user) {
@@ -62,5 +62,4 @@ $(document).on('turbolinks:load', function(){
       $(this).parent('div').remove();
     })
 
- });
 });
