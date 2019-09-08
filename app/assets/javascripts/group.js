@@ -23,6 +23,8 @@ $(document).on('turbolinks:load', function(){
       return html;
     }
 
+    
+
     $('#user-search-field').on('keyup', function(){
       var input = $('#user-search-field').val();
       var url = '/users';
@@ -44,9 +46,11 @@ $(document).on('turbolinks:load', function(){
             // $('#user-search-result').append(html)
           });
         }
-        else {
-        }
+        // else {
+        //   appendNoUsers("一致するユーザーはいません");
+        // }
         })
+
         .fail(function() {
           alert('ユーザー検索に失敗しました');
         })
